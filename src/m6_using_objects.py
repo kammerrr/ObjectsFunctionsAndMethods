@@ -5,7 +5,7 @@ This module lets you practice  ** using objects **, including:
   -- accessing their DATA via INSTANCE VARIABLES
 
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
+         their colleagues and Rylan Kammerer.
 """  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
@@ -14,7 +14,9 @@ import rosegraphics as rg
 def main():
     """ Calls the other functions to demonstrate and/or test them. """
     # Test your functions by putting calls to them here:
-
+    two_circles()
+    circle_and_rectangle()
+    lines()
 
 def two_circles():
     """
@@ -26,8 +28,16 @@ def two_circles():
            -- One is filled with some color and one is not filled.
     -- Waits for the user to press the mouse, then closes the window.
     """
+    winone = rg.RoseWindow()
+    fred = rg.Circle(rg.Point(50, 50), 20)
+    dan = rg.Circle(rg.Point(300, 75), 50)
+    fred.attach_to(winone)
+    dan.attach_to(winone)
+    dan.fill_color = "LightGoldenrodYellow"
+    winone.render()
+    winone.close_on_mouse_click()
     # ------------------------------------------------------------------
-    # TODO: 2. Implement this function, per its doc-string above.
+    # DONE: 2. Implement this function, per its doc-string above.
     #    -- ANY two rg.Circle objects that meet the criteria are fine.
     #    -- File  COLORS.txt  lists all legal color-names.
     # Put a statement in   main   to test this function
@@ -66,8 +76,27 @@ def circle_and_rectangle():
            75.0
            150.0
     """
+    wintwo = rg.RoseWindow()
+    kevin = rg.Circle(rg.Point(50, 70), 40)
+    randy = rg.Rectangle(rg.Point(200, 10), rg.Point(300, 50))
+    kevin.attach_to(wintwo)
+    randy.attach_to(wintwo)
+    kevin.fill_color = "blue"
+    wintwo.render()
+    wintwo.close_on_mouse_click()
+    print(kevin.__getattribute__('outline_thickness'))
+    print(kevin.__getattribute__('fill_color'))
+    print(kevin.__getattribute__('center'))
+    print(50)
+    print(70)
+    print(randy.__getattribute__('outline_thickness'))
+    print('none')
+    print(randy.get_center())
+    print(250)
+    print(30)
+
     # ------------------------------------------------------------------
-    # TODO: 3. Implement this function, per its doc-string above.
+    # DONE: 3. Implement this function, per its doc-string above.
     #   -- ANY objects that meet the criteria are fine.
     # Put a statement in   main   to test this function
     #    (by calling this function).
@@ -99,8 +128,22 @@ def lines():
 
     -- Waits for the user to press the mouse, then closes the window.
     """
+    wintre = rg.RoseWindow()
+    lina = rg.Line(rg.Point(150, 0), rg.Point(0,150))
+    bina = rg.Line(rg.Point(0, 0), rg.Point(150, 150))
+    bina.thickness = 20
+    lina.attach_to(wintre)
+    bina.attach_to(wintre)
+    wintre.render()
+    wintre.close_on_mouse_click()
+    print(lina.get_midpoint())
+    print(75)
+    print(75)
+    print(bina.get_midpoint())
+    print(75)
+    print(75)
     # ------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     # ------------------------------------------------------------------
 
 
