@@ -4,12 +4,12 @@ Demonstrates using (calling) FUNCTIONS and using (calling) METHODS:
   -- how they differ.
 
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Rylan Kammerer.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
 #
-# TODO: 2.
+# DONE: 2.
 #   READ this comment, ASKING QUESTIONS as needed to understand it.
 #
 #   For objects that are CONSTRUCTED, we use the DOT notation
@@ -83,6 +83,9 @@ def main():
 
     # When the TODOs ask you to test YOUR code, put YOUR tests here:
 
+    try_methods()
+    try_functions()
+    try_methods_and_functions()
 
     window.close_on_mouse_click()
 
@@ -171,8 +174,14 @@ def try_methods():
       -- forward    50 units
       -- backward  100 units
     """
+    dave = rg.SimpleTurtle()
+    dave.pen = rg.Pen('brown', 5)
+    dave.forward(150)
+    dave.left(90)
+    dave.forward(50)
+    dave.backward(100)
     ####################################################################
-    # TODO: 3. Implement this function, per its doc-string above.
+    # DONE: 3. Implement this function, per its doc-string above.
     #    Put a statement in   main   to test this function
     #    (by calling this function).
     ####################################################################
@@ -186,7 +195,7 @@ def try_functions():
      -- One jumps to (-50, 50), then moves (while drawing) to (100, 100)
     """
     ####################################################################
-    # TODO: 4. Implement this function, per its doc-string above.
+    # DONE: 4. Implement this function, per its doc-string above.
     #    Put a statement in   main   to test this function
     #    (by calling this function).  IMPORTANT, IMPORTANT, IMPORTANT:
     #    Keep reading the rest of this TO DO before doing the above!
@@ -197,6 +206,31 @@ def try_functions():
     # HINT: see   jump_and_move_turtle   above.
     #
     ####################################################################
+
+    ron = rg.SimpleTurtle()
+    fred = rg.SimpleTurtle()
+    jonny = rg.SimpleTurtle()
+
+    ron.pen = rg.Pen('black', 5)
+    fred.pen = rg.Pen('orange', 5)
+    jonny.pen = rg.Pen('pink', 5)
+
+    def jumpy_turtles(n, x1, y1, x2, y2):
+
+        n.pen_up()
+        n.go_to(rg.Point(x1, y1))
+        n.pen_down()
+        n.go_to(rg.Point(x2, y2))
+
+    jumpy_turtles(fred, 200, 100, 300, 30)
+    jumpy_turtles(ron, 100, 200, 0, 0)
+    jumpy_turtles(jonny, -50, 50, 100, 100)
+
+
+
+
+
+
 
 
 def try_methods_and_functions():
@@ -231,8 +265,35 @@ def try_methods_and_functions():
 
       8. Draw a SQUARE whose sides are each of length 50.
     """
+    george = rg.SimpleTurtle()
+    george.pen = rg.Pen('blue', 5)
+    george.backward(150)
+
+    # defines function that makes twisting boxes
+
+    def boxybox(a, l, t, s, c, f):
+        for k in range(t):
+            george.pen = rg.Pen(c, f)
+            george.speed = s
+            george.left(a)
+            george.draw_square(l)
+
+    boxybox(30, 100, 2, 1, 'blue', 5)
+    boxybox(15, 50, 10, 5, 'red', 5)
+    boxybox(60, 300, 8, 100, 'red', 35)
+
+    devin = rg.SimpleTurtle()
+    devin.pen = rg.Pen('black', 3)
+    devin.backward(200)
+    devin.draw_circle(30)
+    devin.draw_square(50)
+
+
+
+
+
     ####################################################################
-    # TODO: 5. Implement this function, per its doc-string above.
+    # DONE: 5. Implement this function, per its doc-string above.
     #    Put a statement in   main   to test this function
     #    (by calling this function).  IMPORTANT, IMPORTANT, IMPORTANT:
     #    Keep reading the rest of this TO DO before doing the above!
